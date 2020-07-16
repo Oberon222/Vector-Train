@@ -1,0 +1,8 @@
+﻿  Source.cpp
+C:\Users\pavel\source\repos\Vector Train\Vector Train\Railway.h(26,17): warning C4018: '<': signed/unsigned mismatch
+C:\Users\pavel\source\repos\Vector Train\Vector Train\Railway.h(34,21): warning C4018: '<': signed/unsigned mismatch
+C:\Users\pavel\source\repos\Vector Train\Vector Train\Railway.h(45,21): warning C4018: '<': signed/unsigned mismatch
+C:\Users\pavel\source\repos\Vector Train\Vector Train\Railway.h(56,21): warning C4018: '<': signed/unsigned mismatch
+C:\Users\pavel\source\repos\Vector Train\Vector Train\Railway.h(58,22): warning C4018: '<': signed/unsigned mismatch
+C:\Users\pavel\source\repos\Vector Train\Vector Train\Railway.h(73,21): warning C4018: '<': signed/unsigned mismatch
+  Vector Train.vcxproj -> C:\Users\pavel\source\repos\Vector Train\Debug\Vector Train.exe
