@@ -1,6 +1,5 @@
 #pragma once
 #include<iostream>
-#include<string>
 #include<vector>
 #include"Train.h"
 #include<fstream>
@@ -9,8 +8,7 @@ using namespace std;
 class Railway 
 {
 	vector<Train> trains;
-	friend ofstream& operator<<(ofstream& of, const Railway& rw);
-	//friend ifstream& operator>>(ifstream& ifs, Railway& rw);
+	
 
 	public:
 	Railway()
@@ -80,41 +78,24 @@ class Railway
 		}
 	}
 
-	/*void Save()const
+	void Save()const
 	{
 		ofstream fout("Railway.bin", ios_base::out | ios_base::binary);
 		fout.write((char*)&this->trains, sizeof(trains));
 		fout.close();
-	}*/
+	}
 
 
 
-	/*void Load()
+	void Load()
 	{
 		ifstream fin("Railway.bin", ios_base::in | ios_base::binary);
 		fin.read((char*)&this->trains, sizeof(trains));
 		fin.close();
-	}*/
+	}
 
 
 };
 
-ofstream& operator<<(ofstream& fout, const Railway& rw)
-{
-	for (int i = 0; i < rw.trains.size(); i++)
-	{
-		fout << rw.trains[i].GetNumberTrain();
-		fout << rw.trains[i].GetDepartureTimeHours();
-		fout << rw.trains[i].GetDepartureTimeMinutes();
-		fout << rw.trains[i].GetDepartureTimeSeconds();
-		fout << rw.trains[i].GetDestination();
-	}
-	
-}
-
-//ifstream& operator>>(ifstream& ifs, Railway& rw)
-//{
-//
-//}
 
 

@@ -22,7 +22,10 @@ int main()
 	rw.EditTime(9, 4,48,9);
 	//rw.ShowInfoRailway();
 	//rw.Save();
-	rw.Load();
+	//rw.Load();
+
+	rw.SortingVectorTrains();
+	rw.ShowInfoRailway();
 	
 
 	system("pause");

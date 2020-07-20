@@ -1,6 +1,8 @@
 #pragma once
 #include<iostream>
 #include<string>
+#include<fstream>
+
 using namespace std;
 
 struct Time
@@ -9,7 +11,8 @@ struct Time
 	short minutes;
 	short seconds;
 
-	Time() { }
+	Time() : hours(0), minutes(0), seconds(0) { }
+
 	Time(short hours, short minutes, short seconds) : 
 		hours(hours), minutes(minutes), seconds(seconds) { }
 };
@@ -20,8 +23,13 @@ class Train
 	Time departureTime; // час відправлення
 	string destination; // пункт призначення
 
+	friend ofstream& operator<<(ofstream& of, const Train& rw);
+	friend ifstream& operator>>(ifstream& ifs, Train& rw);
+
 
 public:
+	Train() { }
+
 	Train(Time departureTime)
 	{
 		 numberTrain = 0;
@@ -46,32 +54,47 @@ public:
 		this->departureTime.seconds = seconds;
 	}
 
-	int GetDepartureTimeHours()
+	int GetDepartureTimeHours() const
 	{
 		return this->departureTime.hours;
 	}
 
-	int GetDepartureTimeMinutes()
+	void SetDepartureTimeHours(short hours)
+	{
+		this->departureTime.hours = hours;
+	}
+
+	void SetDepartureTimeMinutes(short minutes)
+	{
+		this->departureTime.minutes = minutes;
+	}
+
+	int GetDepartureTimeMinutes()const
 	{
 		return this->departureTime.minutes;
 	}
 
-	int GetDepartureTimeSeconds()
+	int GetDepartureTimeSeconds()const
 	{
 		return this->departureTime.seconds;
 	}
 
-	Time GetDepartureTime()
+	void SetDepartureTimeSeconds(short seconds)
+	{
+		this->departureTime.seconds = seconds;
+	}
+
+	Time GetDepartureTime()const
 	{
 		return departureTime;
 	}
 
-	int GetNumberTrain()
+	int GetNumberTrain()const
 	{
 		return this->numberTrain;
 	}
 
-	string GetDestination()
+	string GetDestination()const
 	{
 		return this->destination;
 	}
@@ -83,13 +106,36 @@ public:
 		cout << "Destination: " << destination << endl;
 	}
 
-	void ShowDepartureTime()const
-	{
-		cout << departureTime.hours << ": " << departureTime.minutes << ": " << departureTime.seconds << endl;
-	}
-
 	
+
 	 
 };
+
+ofstream& operator<<(ofstream& fout, const Train& tr)
+{
+	fout << tr.numberTrain;
+	fout << tr.departureTime.hours;
+	fout << tr.departureTime.minutes;
+	fout << tr.departureTime.seconds;
+	fout << tr.destination;
+
+	return fout;
+}
+
+ifstream& operator>>(ifstream& fin, Train& rw)
+{
+	Train buff1;
+	fin >> buff1.numberTrain;
+	fin >> buff1.departureTime.hours;
+	fin >> buff1.departureTime.minutes;
+	fin >> buff1.departureTime.seconds;
+	fin >> buff1.destination;
+
+	return fin;
+}
+
+
+
+
 
 
